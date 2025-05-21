@@ -25,7 +25,10 @@ const reducer = (state: State, action: Action): State => {
     case "INCREASE_FONT_SIZE":
       return { ...state, fSize: state.fSize + 1 };
     case "DECREASE_FONT_SIZE":
-      return { ...state, fSize: state.fSize - 1 };
+      return {
+        ...state,
+        fSize: state.fSize <= 8 ? state.fSize : state.fSize - 1,
+      };
     default:
       return state;
   }
